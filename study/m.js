@@ -100,9 +100,8 @@ area3 = document.getElementById('area3');
 Array.from(document.getElementsByTagName('a')).forEach(element => {
     element.addEventListener("click", function(e) { selectColor(e, element)}, false);
 });
-
 document.getElementById('begin').addEventListener('click', beginSurvey, false);
-
+var currentPos = document.getElementById('current-pos');
 var currentSelection = new Array(75 + 1).join( '0' );
 var inputSelection = getParameterByName('selection');
 if (inputSelection)
@@ -111,6 +110,11 @@ if (inputSelection)
 var user = getParameterByName('userId');
 if (!user)
     user = uuidv4();
+
+var gender = getParameterByName('gender');    
+
+if (inputSelection && user && gender)
+    beginSurvey();
 
 function uuidv4() {
     return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
@@ -127,11 +131,12 @@ function selectColor(e, element)
         window.history.replaceState('', '', updateURLParameter(window.location.href, "selection", currentSelection));                
         if (pos < order.length - 1){
             if (pos % 5 === 0)
-                writeData(user, currentSelection, 0)
+                writeData(user, currentSelection, gender)
             setColors(pos + 1);
+            currentPos.innerHTML = `${pos + 1}/75`;
         }
         else{
-            writeData(user, currentSelection, 0)
+            writeData(user, currentSelection, gender)
             document.getElementById('background').remove();
             document.getElementById('message').innerHTML = 'Paldies par veltīto laiku!';
         }
@@ -204,7 +209,11 @@ function writeData(userId, selection, gender) {
 
 function beginSurvey(){
     var tgender = document.getElementById('gender');
-    if(tgender.selectedIndex !== 0) {
+    if(tgender.selectedIndex !== 0 || gender) {
+        if (!gender){
+            gender = tgender.value
+            window.history.replaceState('', '', updateURLParameter(window.location.href, "gender", gender));                
+        }
         document.getElementById('intro').setAttribute('style', 'display: none;');
         document.getElementById('message').setAttribute('style', 'display: block;');
         document.getElementById('background').setAttribute('style', 'display: block;');
