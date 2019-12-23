@@ -1,0 +1,63 @@
+body{
+    background: gray;
+    position: relative;
+    margin: 0;
+}
+  
+a {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: solid 2px black;
+    display: block;
+    margin-top: -50px;
+    margin-left:-50px;
+}
+
+#intro, #background, #message {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#intro, #gender, #begin, #message {
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif;            
+    font-size: 1.3em;
+    color:aliceblue;
+    padding: 10px;
+}
+#gender, #begin{
+    color: initial;
+    font-size: 1em;
+    padding: 3px;
+}
+#gender-warning{
+    margin-top: 5px;
+}
+
+#begin {
+    border: 1px solid #fff;
+    padding: 5px;
+    display: block;
+    margin-top: 20px;
+}
+
+#background, #message {
+    display: none;
+}
+#area1{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+}
+#area2, #area3{
+    position: absolute;
+    top: 70%;
+    left: 30%;
+}
+#area3{
+    left: 70%;
+}
