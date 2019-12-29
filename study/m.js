@@ -130,13 +130,13 @@ function selectColor(e, element)
         currentSelection = setCharAt(currentSelection, pos, element.getAttribute('data-item'));            
         window.history.replaceState('', '', updateURLParameter(window.location.href, "selection", currentSelection));                
         if (pos < order.length - 1){
-            if (pos % 5 === 0)
-                writeData(user, currentSelection, gender)
+            //if (pos % 5 === 0)
+            //   writeData(user, currentSelection, gender)
             setColors(pos + 1);
             currentPos.innerHTML = `${pos + 1}/75`;
         }
         else{
-            writeData(user, currentSelection, gender)
+            //writeData(user, currentSelection, gender)
             document.getElementById('background').remove();
             document.getElementById('message').innerHTML = 'Paldies par veltīto laiku!';
         }
@@ -191,13 +191,13 @@ function setColors(pos){
     area3.setAttribute('style', 'background-color:' + D15[d3].value + ';');
 }
 
-var database = firebase.database();
-firebase.auth().signInAnonymously().catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-  });
+//var database = firebase.database();
+//firebase.auth().signInAnonymously().catch(function(error) {
+//    // Handle Errors here.
+//    var errorCode = error.code;
+//    var errorMessage = error.message;
+//    // ...
+//  });
 
 function writeData(userId, selection, gender) {
     firebase.database().ref('survey/' + userId).set({
