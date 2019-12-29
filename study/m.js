@@ -97,9 +97,9 @@ order.push([2, 13, 0]);
 var area1 = document.getElementById('area1');
 var area2 = document.getElementById('area2');
 var area3 = document.getElementById('area3');
-//Array.from(document.getElementsByTagName('a')).forEach(element => {
-//    element.addEventListener("click", function(e) { selectColor(e, element)}, false);
-//});
+Array.from(document.getElementsByTagName('a')).forEach(element => {
+    element.addEventListener("click", function(e) { selectColor(e, element)}, false);
+});
 document.getElementById('begin').addEventListener('click', beginSurvey, false);
 var currentPos = document.getElementById('current-pos');
 var currentSelection = new Array(75 + 1).join( '0' );
@@ -117,9 +117,9 @@ if (inputSelection && user && gender)
     beginSurvey();
 
 function uuidv4() {
-//    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-//        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-//    );
+    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
 }
 
 function selectColor(e, element)
@@ -133,7 +133,7 @@ function selectColor(e, element)
             //if (pos % 5 === 0)
             //   writeData(user, currentSelection, gender)
             setColors(pos + 1);
-            //currentPos.innerHTML = `${pos + 1}/75`;
+            currentPos.innerHTML = `${pos + 1}/75`;
         }
         else{
             //writeData(user, currentSelection, gender)
