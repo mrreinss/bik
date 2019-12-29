@@ -97,9 +97,9 @@ order.push([2, 13, 0]);
 area1 = document.getElementById('area1');
 area2 = document.getElementById('area2');
 area3 = document.getElementById('area3');
-Array.from(document.getElementsByTagName('a')).forEach(element => {
-    element.addEventListener("click", function(e) { selectColor(e, element)}, false);
-});
+//Array.from(document.getElementsByTagName('a')).forEach(element => {
+//    element.addEventListener("click", function(e) { selectColor(e, element)}, false);
+//});
 document.getElementById('begin').addEventListener('click', beginSurvey, false);
 var currentPos = document.getElementById('current-pos');
 var currentSelection = new Array(75 + 1).join( '0' );
