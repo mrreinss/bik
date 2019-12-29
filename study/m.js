@@ -133,7 +133,7 @@ function selectColor(e, element)
             //if (pos % 5 === 0)
             //   writeData(user, currentSelection, gender)
             setColors(pos + 1);
-            currentPos.innerHTML = `${pos + 1}/75`;
+            currentPos.innerHTML = `${pos + 2}/75`;
         }
         else{
             //writeData(user, currentSelection, gender)
