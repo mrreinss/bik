@@ -1,4 +1,4 @@
-D15 = [];
+var D15 = [];
 D15.push({name:'10B', value:'rgb(140,164,178)'});
 D15.push({name:'5B', value:'rgb(80,129,142)'});
 D15.push({name:'10BG', value:'rgb(75,130,135)'});
@@ -16,7 +16,7 @@ D15.push({name:'5RP', value:'rgb(149,111,124)'});
 D15.push({name:'10P', value:'rgb(142,113,134)'});
 D15.push({name:'5P', value:'rgb(167,156,175)'});
 
-order = [];
+var order = [];
 order.push([0, 4, 9]);
 order.push([5, 13, 9]);
 order.push([11, 6, 9]);
@@ -94,9 +94,9 @@ order.push([9, 1, 13]);
 order.push([2, 13, 0]);
 
 
-area1 = document.getElementById('area1');
-area2 = document.getElementById('area2');
-area3 = document.getElementById('area3');
+var area1 = document.getElementById('area1');
+var area2 = document.getElementById('area2');
+var area3 = document.getElementById('area3');
 //Array.from(document.getElementsByTagName('a')).forEach(element => {
 //    element.addEventListener("click", function(e) { selectColor(e, element)}, false);
 //});
@@ -125,7 +125,7 @@ function uuidv4() {
 function selectColor(e, element)
 {
     e.preventDefault();
-    pos = currentSelection.indexOf('0');
+    var pos = currentSelection.indexOf('0');
     if (pos !== -1 ){                
         currentSelection = setCharAt(currentSelection, pos, element.getAttribute('data-item'));            
         window.history.replaceState('', '', updateURLParameter(window.location.href, "selection", currentSelection));                
@@ -185,7 +185,9 @@ function setCharAt(str,index,chr)
 }
 
 function setColors(pos){
-    [d1, d2, d3] = order[pos]; 
+    var d1 = order[pos][0]
+    var d2 = order[pos][1]
+    var d3 = order[pos][2]; 
     area1.setAttribute('style', 'background-color:' + D15[d1].value + ';');
     area2.setAttribute('style', 'background-color:' + D15[d2].value + ';');
     area3.setAttribute('style', 'background-color:' + D15[d3].value + ';');
